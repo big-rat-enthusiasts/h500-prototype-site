@@ -1,0 +1,37 @@
+{
+    "name": "svelte-base",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "postinstall": "sv-router",
+        "lint": "prettier --check . && eslint .",
+        "format": "prettier --write .",
+        "fix-code": "prettier --write . && eslint --fix ."
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@sveltejs/vite-plugin-svelte": "^7.3.0",
+        "eslint": "^10.12.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-sort": "^4.0.0",
+        "eslint-plugin-svelte": "^3.23.1",
+        "globals": "^17.13.0",
+        "pre-commit": "^2.0.0",
+        "prettier": "^3.9.10",
+        "prettier-plugin-svelte": "^4.1.1",
+        "sass-embedded": "^1.105.1",
+        "svelte": "^5.57.0",
+        "svelte-preprocess": "^6.0.5",
+        "vite": "^8.3.0"
+    },
+    "dependencies": {
+        "sv-router": "^0.19.0"
+    },
+    "pre-commit": [
+        "fix-code"
+    ]
+}
