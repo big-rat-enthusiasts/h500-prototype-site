@@ -1,8 +1,20 @@
 :root {
     color-scheme: dark;
     font-family: sans-serif;
+
+    color: #fff;
+    background: #222;
 }
 
 body {
     margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #2af;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }

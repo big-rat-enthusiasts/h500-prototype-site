@@ -5,4 +5,10 @@ import { router } from "sv-router/vite-plugin";
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [svelte(), router()],
+    server: {
+        proxy: {
+            "/_": "http://127.0.0.1:8090",
+            "/api": "http://127.0.0.1:8090",
+        }
+    }
 });

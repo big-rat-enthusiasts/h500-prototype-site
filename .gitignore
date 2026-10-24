@@ -25,3 +25,6 @@ dist-ssr
 
 # sv-router
 .router/
+
+public/tw/
+scratch-gui/

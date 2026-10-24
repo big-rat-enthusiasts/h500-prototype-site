@@ -1,17 +1,25 @@
 <script>
+    import { user, isLoggedIn } from "../pocketbase.js";
 </script>
 
 <main>
-    <h1>svelte-base</h1>
-    <p>a basic svelte template with all the good stuff already set up for you</p>
-    <h2>featuring:</h2>
-    <ul>
-        <li>vite</li>
-        <li>svelte</li>
-        <li>scss</li>
-        <li>eslint</li>
-        <li>prettier</li>
-    </ul>
+    <h1>hackingtons 500 prototype editor</h1>
+    <p>this is a prototype, things may break.</p>
+
+    {#if $isLoggedIn}
+        <h2>Welcome, {$user?.name}!</h2>
+        <p>
+            <a href="/edit">edit your project</a>
+        </p>
+    {:else}
+        <p>
+            <a href="/login">log in</a>
+        </p>
+    {/if}
+
+    <p>
+        <a href="/view">browse projects</a>
+    </p>
 </main>
 
 <style lang="scss">
