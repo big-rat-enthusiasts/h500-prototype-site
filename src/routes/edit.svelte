@@ -48,7 +48,9 @@
                 const file = await fetch("/template.sb3");
                 prj = await coll.create({
                     owner: $user?.id,
-                    file: new File([await file.blob()], "project.sb3", { type: "appliation/x.scratch.sb3" }),
+                    file: new File([await file.blob()], "project.sb3", {
+                        type: "appliation/x.scratch.sb3",
+                    }),
                 });
 
                 console.log(prj);
@@ -90,7 +92,6 @@
         status = "saved " + new Date().toLocaleTimeString();
         canSave = false;
         saving = false;
-
     }
 
     onMount(async () => {
@@ -113,7 +114,7 @@
             canSave = true;
             clearTimeout(timer);
             timer = setTimeout(save, 2000);
-        })
+        });
     });
 </script>
 
@@ -127,7 +128,13 @@
         <button onclick={save}>save</button>
     {/if}
 </span>
-<iframe bind:this={frame} src="/tw/editor.html" title="Editor" allowtransparency={true} allowfullscreen></iframe>
+<iframe
+    bind:this={frame}
+    src="/tw/editor.html"
+    title="Editor"
+    allowtransparency={true}
+    allowfullscreen
+></iframe>
 
 <style>
     iframe {

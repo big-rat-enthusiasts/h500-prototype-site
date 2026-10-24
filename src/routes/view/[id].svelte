@@ -11,19 +11,28 @@
         // @ts-ignore
         const prj = await $pb.collection("projects").getOne(route.params.id, { expand: "owner" });
         username = prj.expand?.owner.name;
-        src = "/tw/embed.html?" + new URLSearchParams({
-            project_url: $pb.files.getURL(prj, prj.file),
-            addons: "pause",
-            autoplay: "",
-        });
+        src =
+            "/tw/embed.html?" +
+            new URLSearchParams({
+                project_url: $pb.files.getURL(prj, prj.file),
+                addons: "pause",
+                autoplay: "",
+            });
     });
 </script>
 
 <main>
     {#if src}
         <h3>{username}</h3>
-        <iframe src={src} frameborder="0" title="Project player" allowtransparency={true}
-                scrolling="no" allowfullscreen style="color-scheme: auto"></iframe>
+        <iframe
+            {src}
+            frameborder="0"
+            title="Project player"
+            allowtransparency={true}
+            scrolling="no"
+            allowfullscreen
+            style="color-scheme: auto"
+        ></iframe>
     {:else}
         <LoadingCover />
     {/if}

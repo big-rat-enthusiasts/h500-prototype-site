@@ -8,9 +8,11 @@
     let projects = $state([]);
 
     onMount(async () => {
-        projects = (await $pb.collection("projects").getList(1, 200, {
-            expand: "owner",
-        })).items;
+        projects = (
+            await $pb.collection("projects").getList(1, 200, {
+                expand: "owner",
+            })
+        ).items;
 
         loading = false;
     });

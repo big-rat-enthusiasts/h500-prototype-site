@@ -6,18 +6,20 @@
 
 <nav>
     <a href="/">
-        <img src={bigRat} alt="">
+        <img src={bigRat} alt="" />
         h500 prototype
     </a>
 
     <div>
         {#if $isLoggedIn}
             <span>{$user?.name}</span>
-            <button onclick={() => {
-                $pb.authStore.clear();
-                updateLoggedIn();
-                navigate("/");
-            }}>log out</button>
+            <button
+                onclick={() => {
+                    $pb.authStore.clear();
+                    updateLoggedIn();
+                    navigate("/");
+                }}>log out</button
+            >
         {:else}
             <a href="/login">log in</a>
         {/if}
